@@ -89,9 +89,10 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
         </Heading>
       </LandingMidi>
 
-      <LandingMidi style={{ paddingTop: 32 }}>
-        <Collage />
-      </LandingMidi>
+      <Midi style={{ paddingTop: "84px", margin: "0 auto" }}>
+        <Heading2 id="experience">Experience</Heading2>
+        <Experience experiences={experiences} />
+      </Midi>
 
       <LandingMidi
         style={{
@@ -158,10 +159,9 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
         />
       </LandingMidi>
 
-      <Midi style={{ paddingTop: "84px", margin: "0 auto" }}>
-        <Heading2 id="experience">Experience</Heading2>
-        <Experience experiences={experiences} />
-      </Midi>
+      <LandingMidi style={{ paddingTop: 32 }}>
+        <Collage />
+      </LandingMidi>
 
       <LandingMidi style={{ marginBottom: "10px" }}>
         <Foot />
