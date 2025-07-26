@@ -1,4 +1,3 @@
-### Updated personal portfolio page - <a href="https://juliacodes.com">Juliacodes.com</a>
+### Updated personal portfolio page - <a href="https://juliacodes.com">Latifur Rahman Portfolio</a>
 
-Built by Julia Johnson using: React, Styled Components & Netlify
-
+Built by Md. Latifur Rahman (Limon) using: React, Styled Components & Netlify
