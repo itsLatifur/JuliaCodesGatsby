@@ -24,21 +24,66 @@ import {
 import { Spread } from "../components/switch/styles";
 import { NewVid, Thumb } from "../images";
 
-const Split = styled.div`
-  display: flex;
-  justify-content: space-between;
+const Card = styled(Midi)`
+  padding: 40px;
+  border-radius: 8px;
+  /* Use the 'mode' prop to set a border color that works for both themes */
+  border: 1px solid
+    ${(props) =>
+      props.mode === "dark"
+        ? "rgba(255, 255, 255, 0.2)"
+        : "rgba(0, 0, 0, 0.1)"};
+
+  /* Set the margin for the cards */
+  &:not(:first-of-type) {
+    margin: 84px auto 0;
+  }
+  &.hero-card {
+    margin: 120px auto 0;
+  }
+`;
+
+const HeroGrid = styled.div`
+  display: grid;
   align-items: center;
   gap: 40px;
-  margin: 0 auto;
-  flex-wrap: wrap;
+  /* Mobile-first: stack columns by default */
+  grid-template-columns: 1fr;
 
-  > * {
-    width: 100%;
-
-    @media (${QUERIES.large}) {
-      width: calc(50% - 20px);
-    }
+  /* On larger screens, use two columns */
+  @media (${QUERIES.large}) {
+    grid-template-columns: 1fr 1fr;
   }
+`;
+
+const HeroText = styled.div`
+  mix-blend-mode: difference;
+  color: white;
+
+  /* On mobile, go to the second row */
+  grid-row: 2;
+
+  /* On desktop, go to the first column in the first row */
+  @media (${QUERIES.large}) {
+    grid-row: 1;
+    grid-column: 1 / 2;
+  }
+`;
+
+const HeroImageContainer = styled.div`
+  /* On mobile, go to the first row */
+  grid-row: 1;
+
+  /* On desktop, go to the second column in the first row */
+  @media (${QUERIES.large}) {
+    grid-row: 1;
+    grid-column: 2 / 3;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
 `;
 
 const experiences = [
@@ -78,32 +123,18 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
       <Spread className={spreadClass} />
       <Nav mode={mode} toggleMode={toggleMode} />
       {/* --- NEW HERO STRUCTURE --- */}
-      {/* Use the existing Midi component to ensure alignment with other sections */}
-      <Midi style={{ paddingTop: "120px" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            alignItems: "center",
-            gap: "40px",
-          }}
-        >
-          {/* Column 1: Text with blend mode */}
-          <div
-            style={{
-              gridColumn: "1 / 2",
-              mixBlendMode: "difference",
-              color: "white",
-            }}
-          >
+      <Card mode={mode} className="hero-card">
+        <HeroGrid>
+          {/* Text Column */}
+          <HeroText>
             <Heading>{personalData.role}</Heading>
             <Paragraph style={{ marginTop: "20px" }}>
               {personalData.description}
             </Paragraph>
-          </div>
+          </HeroText>
 
-          {/* Column 2: Image without blend mode */}
-          <div style={{ gridColumn: "2 / 3", gridRow: "1" }}>
+          {/* Image Column */}
+          <HeroImageContainer>
             <img
               src={personalData.profileImage}
               alt="Latifur Rahman"
@@ -118,87 +149,73 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
                 display: "block",
               }}
             />
-          </div>
-        </div>
-      </Midi>
+          </HeroImageContainer>
+        </HeroGrid>
+      </Card>
       {/* --- END HERO STRUCTURE --- */}
-      {/* Remove the old hero section */}
+
       {/* Experience Section Card */}
-      <Midi
-        style={{
-          padding: "40px",
-          margin: "84px auto 0",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
-          borderRadius: "8px",
-          borderRadius: "8px",
-        }}
-      >
+      <Card mode={mode}>
         <Heading2 id="experience">Experience</Heading2>
         <Experience experiences={experiences} />
-      </Midi>
+      </Card>
+
       {/* Case Studies & Projects Card */}
-      <Midi
-        style={{
-          padding: "40px",
-          margin: "84px auto 0",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
-          borderRadius: "8px",
-        }}
-      >
-        <LandingMidi
-          style={{
-            mixBlendMode: "difference",
-            margin: "0 auto",
-            paddingBottom: 0,
-          }}
-        >
-          <Heading2
-            id="case-studies"
+      <Card mode={mode}>
+        {/* Text container with blend mode */}
+        <div style={{ mixBlendMode: "difference", color: "white" }}>
+          <LandingMidi
             style={{
-              color: "white",
+              margin: "0 auto",
+              paddingBottom: 0,
             }}
           >
-            Case studies
-          </Heading2>
-        </LandingMidi>
+            <Heading2 id="case-studies">Case studies</Heading2>
+          </LandingMidi>
+        </div>
+
+        {/* Image container without blend mode */}
         <LandingMidi style={{ paddingTop: 20, margin: "0 auto" }}>
           <Link to="schedule">
             <ImageProj $image={Thumb} />
           </Link>
         </LandingMidi>
-        <LandingMidi
-          style={{
-            mixBlendMode: "difference",
-            color: "white",
-            paddingTop: 0,
-            margin: "0 auto",
-          }}
-        >
-          <Heading3
-            style={{
-              textAlign: "left",
-              margin: 0,
-              padding: 0,
-              color: "white",
-            }}
-            onMouseDown={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <Link to="schedule">Content Variety & Scheduling</Link>
-          </Heading3>
 
-          <Paragraph
+        {/* Text container with blend mode */}
+        <div style={{ mixBlendMode: "difference", color: "white" }}>
+          <LandingMidi
             style={{
-              marginTop: "-4px",
-              color: "white",
-              opacity: 0.4,
+              paddingTop: 0,
+              margin: "0 auto",
             }}
           >
-            Led research & design to solve content staleness problems
-          </Paragraph>
-        </LandingMidi>
+            <Heading3
+              style={{
+                textAlign: "left",
+                margin: 0,
+                padding: 0,
+              }}
+              onMouseDown={(e) => {
+                e.preventDefault();
+              }}
+            >
+              <StyledLink to="schedule">
+                Content Variety & Scheduling
+              </StyledLink>
+            </Heading3>
+
+            <Paragraph
+              style={{
+                marginTop: "-4px",
+                opacity: 0.4,
+              }}
+            >
+              Led research & design to solve content staleness problems
+            </Paragraph>
+          </LandingMidi>
+        </div>
+
+        {/* Image/Video container without blend mode */}
         <LandingMidi style={{ paddingTop: 24, margin: "0 auto" }}>
           <ProjectVideo
             name="Redesigning B2B Signup"
@@ -207,15 +224,17 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
             description="Reimagining the signup flow for Atmosphere TV"
           />
         </LandingMidi>
+      </Card>
 
-        <LandingMidi
-          style={{
-            paddingTop: 30,
-          }}
-        >
-          <Collage />
-        </LandingMidi>
-      </Midi>
+      {/* Collage section without a card */}
+      <LandingMidi
+        style={{
+          paddingTop: 30,
+        }}
+      >
+        <Collage />
+      </LandingMidi>
+
       <LandingMidi style={{ marginBottom: "10px" }}>
         <Foot />
       </LandingMidi>
