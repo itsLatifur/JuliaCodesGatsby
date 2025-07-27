@@ -12,7 +12,7 @@ import QUERIES, {
 } from "../theming/styles";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { personalData } from "../data";
+import { personalData, experiencesData } from "../data";
 import {
   Nav,
   Foot,
@@ -86,29 +86,6 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const experiences = [
-  {
-    years: "2024 - now",
-    title: "Senior Product Designer at Atmosphere TV",
-    description: "Lead designer for tv for bars & restaurants",
-  },
-  {
-    years: "2023 - 2024",
-    title: "Product Designer at Atmosphere TV",
-    description: "Led design & research for customer tooling",
-  },
-  {
-    years: "2020 - 2023",
-    title: "UX Engineer at IBM",
-    description: "Designed & developed tools for engineers",
-  },
-  {
-    years: "2019 - 2020",
-    title: "UI Developer at Awkward Co.",
-    description: "Developing component system alongside designers",
-  },
-];
-
 const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
   const spreadClass =
     spread === "first" ? "growBlack" : spread === "second" ? "growWhite" : "";
@@ -127,7 +104,9 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
         <HeroGrid>
           {/* Text Column */}
           <HeroText>
-            <Heading>{personalData.role}</Heading>
+            {personalData.role.map((role, index) => (
+              <Heading2 key={index}>{role}</Heading2>
+            ))}
             <Paragraph style={{ marginTop: "20px" }}>
               {personalData.description}
             </Paragraph>
@@ -155,10 +134,12 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
       {/* --- END HERO STRUCTURE --- */}
 
       {/* Experience Section Card */}
-      <Card mode={mode}>
-        <Heading2 id="experience">Experience</Heading2>
-        <Experience experiences={experiences} />
-      </Card>
+      {personalData.showExperiences && (
+        <Card mode={mode}>
+          <Heading2 id="experience">Experience</Heading2>
+          <Experience experiences={experiencesData} />
+        </Card>
+      )}
 
       {/* Case Studies & Projects Card */}
       <Card mode={mode}>
