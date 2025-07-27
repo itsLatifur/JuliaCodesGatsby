@@ -33,13 +33,15 @@ const Card = styled(Midi)`
       props.mode === "dark"
         ? "rgba(255, 255, 255, 0.2)"
         : "rgba(0, 0, 0, 0.1)"};
+  /* Conditionally remove bottom padding if noBottomPadding prop is true */
+  padding-bottom: ${(props) => (props.noBottomPadding ? "0" : "40px")};
 
   /* Set the margin for the cards */
   &:not(:first-of-type) {
     margin: 84px auto 0;
   }
   &.hero-card {
-    margin: 120px auto 0;
+    margin: 84px auto 0;
   }
 `;
 
@@ -84,6 +86,13 @@ const HeroImageContainer = styled.div`
 const StyledLink = styled(Link)`
   color: inherit;
   text-decoration: none;
+`;
+
+const ProjectsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-top: 48px;
 `;
 
 const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
@@ -142,8 +151,8 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
       )}
 
       {/* Case Studies & Projects Card */}
-      <Card mode={mode}>
-        {/* Text container with blend mode */}
+      <Card mode={mode} noBottomPadding>
+        {/* Main Title */}
         <div style={{ mixBlendMode: "difference", color: "white" }}>
           <LandingMidi
             style={{
@@ -155,56 +164,57 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
           </LandingMidi>
         </div>
 
-        {/* Image container without blend mode */}
-        <LandingMidi style={{ paddingTop: 20, margin: "0 auto" }}>
-          <Link to="schedule">
-            <ImageProj $image={Thumb} />
-          </Link>
-        </LandingMidi>
-
-        {/* Text container with blend mode */}
-        <div style={{ mixBlendMode: "difference", color: "white" }}>
-          <LandingMidi
-            style={{
-              paddingTop: 0,
-              margin: "0 auto",
-            }}
-          >
-            <Heading3
+        <ProjectsWrapper>
+          {/* --- Project 1 --- */}
+          <LandingMidi style={{ margin: "0 auto" }}>
+            {/* Image container without blend mode */}
+            <Link to="schedule">
+              <ImageProj $image={Thumb} />
+            </Link>
+            {/* Text container with blend mode */}
+            <div
               style={{
-                textAlign: "left",
-                margin: 0,
-                padding: 0,
-              }}
-              onMouseDown={(e) => {
-                e.preventDefault();
+                mixBlendMode: "difference",
+                color: "white",
+                paddingTop: "0px",
+                paddingLeft: "12px",
               }}
             >
-              <StyledLink to="schedule">
-                Content Variety & Scheduling
-              </StyledLink>
-            </Heading3>
-
-            <Paragraph
-              style={{
-                marginTop: "-4px",
-                opacity: 0.4,
-              }}
-            >
-              Led research & design to solve content staleness problems
-            </Paragraph>
+              <Heading3
+                style={{
+                  textAlign: "left",
+                  margin: 0,
+                  padding: 0,
+                }}
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                <StyledLink to="schedule">
+                  Content Variety & Scheduling
+                </StyledLink>
+              </Heading3>
+              <Paragraph
+                style={{
+                  marginTop: "-4px",
+                  opacity: 0.4,
+                }}
+              >
+                Led research & design to solve content staleness problems
+              </Paragraph>
+            </div>
           </LandingMidi>
-        </div>
 
-        {/* Image/Video container without blend mode */}
-        <LandingMidi style={{ paddingTop: 24, margin: "0 auto" }}>
-          <ProjectVideo
-            name="Redesigning B2B Signup"
-            image={NewVid}
-            url="marketing-site"
-            description="Reimagining the signup flow for Atmosphere TV"
-          />
-        </LandingMidi>
+          {/* --- Project 2 --- */}
+          <LandingMidi style={{ margin: "0 auto" }}>
+            <ProjectVideo
+              name="Redesigning B2B Signup"
+              image={NewVid}
+              url="marketing-site"
+              description="Reimagining the signup flow for Atmosphere TV"
+            />
+          </LandingMidi>
+        </ProjectsWrapper>
       </Card>
 
       {/* Collage section without a card */}
