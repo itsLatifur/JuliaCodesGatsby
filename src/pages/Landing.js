@@ -113,10 +113,22 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
         <HeroGrid>
           {/* Text Column */}
           <HeroText>
+            <Heading style={{ fontWeight: 500, marginBottom: "16px" }}>
+              {personalData.name}
+            </Heading>
             {personalData.role.map((role, index) => (
-              <Heading2 key={index}>{role}</Heading2>
+              <Heading2
+                key={index}
+                style={{
+                  fontSize: "20px",
+                  fontWeight: 400,
+                  marginBottom: "4px",
+                }}
+              >
+                {role}
+              </Heading2>
             ))}
-            <Paragraph style={{ marginTop: "20px" }}>
+            <Paragraph style={{ marginTop: "24px" }}>
               {personalData.description}
             </Paragraph>
           </HeroText>
