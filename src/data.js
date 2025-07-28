@@ -10,7 +10,7 @@ export const personalData = {
   github: "https://github.com/itsLatifur",
   email: "itslatifur@gmail.com",
   resumeLink: "/resume.pdf",
-  showExperiences: true, // can be toggled to show(true)/hide(false) experience section
+  showExperiences: false, // can be toggled to show(true)/hide(false) experience section
 };
 
 export const experiencesData = [
