@@ -3,11 +3,14 @@ export const personalData = {
   role: ["Software Engineer"],
   description:
     "I craft solid and scalable frontend products with great user experiences. Highly skilled at progressive enhancement, design systems & UI Engineering.",
+
+  showProfileImage: false, // can be toggled to show(true)/hide(false) profile image
   profileImage: "/profile.jpg",
   linkedIn: "https://www.linkedin.com/in/latifur/",
   github: "https://github.com/itsLatifur",
   email: "itslatifur@gmail.com",
-  showExperiences: true,
+  resumeLink: "/resume.pdf",
+  showExperiences: true, // can be toggled to show(true)/hide(false) experience section
 };
 
 export const experiencesData = [
