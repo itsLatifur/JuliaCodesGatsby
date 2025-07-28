@@ -1,6 +1,6 @@
 export const personalData = {
   name: "Latifur Rahman",
-  role: ["Software Engineer", "Web Developer"],
+  role: ["Software Engineer"],
   description:
     "I craft solid and scalable frontend products with great user experiences. Highly skilled at progressive enhancement, design systems & UI Engineering.",
   profileImage: "/profile.jpg",
