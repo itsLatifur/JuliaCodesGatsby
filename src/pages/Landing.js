@@ -25,45 +25,67 @@ import { Spread } from "../components/switch/styles";
 import { NewVid, Thumb } from "../images";
 
 const Card = styled(Midi)`
-  padding: 40px;
-  border-radius: 8px;
-  /* Use the 'mode' prop to set a border color that works for both themes */
-  border: 1px solid
-    ${(props) =>
-      props.mode === "dark"
-        ? "rgba(255, 255, 255, 0.2)"
-        : "rgba(0, 0, 0, 0.1)"};
-  /* Conditionally remove bottom padding if noBottomPadding prop is true */
-  padding-bottom: ${(props) => (props.noBottomPadding ? "0" : "40px")};
-
-  /* Set the margin for the cards */
+  /* On mobile, cards have no special styling */
+  padding: 0;
+  padding-bottom: ${(props) => (props.noBottomPadding ? "0" : "24px")};
   &:not(:first-of-type) {
-    margin: 84px auto 0;
+    margin: 24px auto 0;
   }
   &.hero-card {
-    margin: 84px auto 0;
+    margin: 24px auto 0;
+  }
+
+  /* On tablet and larger, re-introduce card styles but reduce top/bottom padding */
+  @media (min-width: 768px) {
+    padding: 8px 24px 8px 24px;
+    border-radius: 8px;
+    border: 1px solid
+      ${(props) =>
+        props.mode === "dark"
+          ? "rgba(255, 255, 255, 0.2)"
+          : "rgba(0, 0, 0, 0.1)"};
+    padding-bottom: ${(props) => (props.noBottomPadding ? "0" : "8px")};
+    &:not(:first-of-type) {
+      margin: 32px auto 0;
+    }
+    &.hero-card {
+      margin: 32px auto 0;
+    }
+  }
+
+  @media (${QUERIES.large}) {
+    padding: 8px 40px 8px 40px;
+    padding-bottom: ${(props) => (props.noBottomPadding ? "0" : "8px")};
+    &:not(:first-of-type) {
+      margin: 48px auto 0;
+    }
+    &.hero-card {
+      margin: 48px auto 0;
+    }
   }
 `;
 
 const HeroGrid = styled.div`
   display: grid;
   align-items: center;
-  gap: 40px;
-  /* Mobile-first: stack columns by default */
+  gap: 24px;
   grid-template-columns: 1fr;
 
-  /* On larger screens, use two columns */
-  @media (${QUERIES.large}) {
-    grid-template-columns: 1fr 1fr;
+  /* Dynamically set columns based on image visibility */
+  &.with-image {
+    @media (${QUERIES.large}) {
+      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 `;
 
 const HeroText = styled.div`
-  mix-blend-mode: difference;
   color: white;
+  mix-blend-mode: difference;
 
-  /* On mobile, go to the second row */
-  grid-row: 2;
+  /* On mobile, go to the first row */
+  grid-row: 1;
 
   /* On desktop, go to the first column in the first row */
   @media (${QUERIES.large}) {
@@ -73,8 +95,8 @@ const HeroText = styled.div`
 `;
 
 const HeroImageContainer = styled.div`
-  /* On mobile, go to the first row */
-  grid-row: 1;
+  /* On mobile, go to the second row */
+  grid-row: 2;
 
   /* On desktop, go to the second column in the first row */
   @media (${QUERIES.large}) {
@@ -83,16 +105,80 @@ const HeroImageContainer = styled.div`
   }
 `;
 
+const HeroImage = styled.img`
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid white;
+  margin: 0 auto;
+  display: block;
+
+  @media (min-width: 768px) {
+    max-width: 300px;
+  }
+`;
+
 const StyledLink = styled(Link)`
   color: inherit;
   text-decoration: none;
 `;
 
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+`;
+
+const StyledButton = styled.a`
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  text-align: center;
+  flex-grow: 1;
+  border: 1px solid;
+  background-color: ${({ className, theme }) =>
+    className && className.includes("primary")
+      ? theme.textMain
+      : "transparent"};
+  color: ${({ className, theme }) =>
+    className && className.includes("primary") ? theme.main : theme.textMain};
+  border-color: ${({ theme }) => theme.textMain};
+  ${({ mode }) =>
+    mode === "light" &&
+    `
+      mix-blend-mode: difference;
+    `}
+
+  &:hover {
+    background-color: ${({ className, theme }) =>
+      className && className.includes("primary")
+        ? theme.textMain + "CC"
+        : theme.textMain + "22"};
+    color: ${({ className, theme }) =>
+      className && className.includes("primary") ? theme.main : theme.textMain};
+  }
+
+  @media (min-width: 768px) {
+    padding: 12px 24px;
+    font-size: initial;
+    flex-grow: 0;
+  }
+`;
+
 const ProjectsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  margin-top: 48px;
+  gap: 24px;
+  margin-top: 24px;
+
+  @media (min-width: 768px) {
+    gap: 48px;
+    margin-top: 48px;
+  }
 `;
 
 const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
@@ -110,66 +196,94 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
       <Nav mode={mode} toggleMode={toggleMode} />
       {/* --- NEW HERO STRUCTURE --- */}
       <Card mode={mode} className="hero-card">
-        <HeroGrid>
-          {/* Text Column */}
-          <HeroText>
-            <Heading style={{ fontWeight: 500, marginBottom: "16px" }}>
-              {personalData.name}
-            </Heading>
-            {personalData.role.map((role, index) => (
-              <Heading2
-                key={index}
+        <LandingMidi
+          style={{ paddingTop: 0, paddingBottom: 0, marginBottom: 36 }}
+        >
+          <HeroGrid
+            className={personalData.showProfileImage ? "with-image" : ""}
+          >
+            {/* Text Column */}
+            <HeroText>
+              <Heading
                 style={{
-                  fontSize: "20px",
-                  fontWeight: 400,
-                  marginBottom: "4px",
+                  fontWeight: 500,
+                  marginBottom: "16px",
+                  marginTop: "0",
+                  paddingTop: "0",
                 }}
               >
-                {role}
-              </Heading2>
-            ))}
-            <Paragraph style={{ marginTop: "24px" }}>
-              {personalData.description}
-            </Paragraph>
-          </HeroText>
+                {personalData.name}
+              </Heading>
+              {personalData.role.map((role, index) => (
+                <Heading2
+                  key={index}
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: 400,
+                    marginBottom: "4px",
+                  }}
+                >
+                  {role}
+                </Heading2>
+              ))}
+              <Paragraph style={{ marginTop: "24px" }}>
+                {personalData.description}
+              </Paragraph>
+              <ButtonGroup>
+                <StyledButton
+                  href="#case-studies"
+                  className="primary"
+                  mode={mode}
+                >
+                  View Projects
+                </StyledButton>
+                <StyledButton
+                  href={personalData.resumeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="secondary"
+                  mode={mode}
+                >
+                  View Resume
+                </StyledButton>
+              </ButtonGroup>
+            </HeroText>
 
-          {/* Image Column */}
-          <HeroImageContainer>
-            <img
-              src={personalData.profileImage}
-              alt="Latifur Rahman"
-              style={{
-                width: "100%",
-                maxWidth: "300px",
-                aspectRatio: "1 / 1",
-                objectFit: "cover",
-                borderRadius: "8px",
-                border: "2px solid white",
-                margin: "0 auto",
-                display: "block",
-              }}
-            />
-          </HeroImageContainer>
-        </HeroGrid>
+            {/* Image Column */}
+            {personalData.showProfileImage && (
+              <HeroImageContainer>
+                <HeroImage
+                  src={personalData.profileImage}
+                  alt="Latifur Rahman"
+                />
+              </HeroImageContainer>
+            )}
+          </HeroGrid>
+        </LandingMidi>
       </Card>
       {/* --- END HERO STRUCTURE --- */}
 
       {/* Experience Section Card */}
       {personalData.showExperiences && (
         <Card mode={mode}>
-          <Heading2 id="experience">Experience</Heading2>
-          <Experience experiences={experiencesData} />
+          <LandingMidi
+            style={{ paddingTop: 0, paddingBottom: 0, marginBottom: 0 }}
+          >
+            <Heading2 id="experience">Experience</Heading2>
+            <Experience experiences={experiencesData} />
+          </LandingMidi>
         </Card>
       )}
 
       {/* Case Studies & Projects Card */}
       <Card mode={mode} noBottomPadding>
         {/* Main Title */}
-        <div style={{ mixBlendMode: "difference", color: "white" }}>
+        <div style={{ color: "white" }}>
           <LandingMidi
             style={{
               margin: "0 auto",
               paddingBottom: 0,
+              paddingTop: 36,
             }}
           >
             <Heading2 id="case-studies">Case studies</Heading2>
@@ -186,10 +300,9 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
             {/* Text container with blend mode */}
             <div
               style={{
-                mixBlendMode: "difference",
                 color: "white",
                 paddingTop: "0px",
-                paddingLeft: "12px",
+                paddingLeft: "0px",
               }}
             >
               <Heading3
@@ -232,7 +345,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
       {/* Collage section without a card */}
       <LandingMidi
         style={{
-          paddingTop: 30,
+          paddingTop: 20,
         }}
       >
         <Collage />
