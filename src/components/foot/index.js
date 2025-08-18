@@ -4,11 +4,12 @@ import { Paragraph } from "../../theming/styles";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Foot = () => {
+  const year = new Date().getFullYear();
   return (
     <FootCont>
       <FootFinal>
         <FinalLeft>
-          <Paragraph>© Latifur Rahman</Paragraph>
+          <Paragraph>© {year} Latifur Rahman · All rights reserved.</Paragraph>
         </FinalLeft>
         <FinalRight>
           <a
