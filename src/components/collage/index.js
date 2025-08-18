@@ -5,36 +5,54 @@ import CollageGif2 from "../../images/collage/collage2.gif";
 import CollageImage3 from "../../images/collage/collage3.png";
 import CollageGif4 from "../../images/collage/collage4.gif";
 import CollageGif5 from "../../images/collage/collage5.gif";
+import { collageItems } from "../../data";
 
 const Collage = () => {
-  const openNewTab = (url) => {
-    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
-    if (newWindow) newWindow.opener = null;
-  };
+  // Sensible defaults using existing assets; will be overridden by data.js if provided
+  const defaultItems = [
+    { label: "Content Scheduling", img: CollageImage1, alt: "Scheduler" },
+    { label: "Trivia Game Design", img: CollageGif2, alt: "Trivia Game" },
+    { label: "Email Onboarding", img: CollageImage3, alt: "Email Onboarding" },
+    { label: "Paywall Popup", img: CollageGif4, alt: "Paywall Popup" },
+    {
+      label: "Navigation Collapse",
+      img: CollageGif5,
+      alt: "Navigation Collapse",
+    },
+  ];
+
+  // Use user-provided items if present; each item can have: { label, href?, src?, alt? }
+  const items =
+    Array.isArray(collageItems) && collageItems.length > 0
+      ? collageItems
+      : defaultItems;
 
   return (
     <CollageCont>
-      <CollageItem
-        onClick={() => openNewTab("")}
-        data-label="Content Scheduling"
-      >
-        <img src={CollageImage1} alt="Scheduler" />
-      </CollageItem>
-      <CollageItem data-label="Trivia Game Design">
-        <img src={CollageGif2} alt="Web Development" />
-      </CollageItem>
-      <CollageItem data-label="Email Onboarding">
-        <img src={CollageImage3} alt="UI/UX Design" />
-      </CollageItem>
-      <CollageItem onClick={() => openNewTab("")} data-label="Paywall Popup">
-        <img src={CollageGif4} alt="Digital Art" />
-      </CollageItem>
-      <CollageItem
-        onClick={() => openNewTab("")}
-        data-label="Navigation Collapse"
-      >
-        <img src={CollageGif5} alt="Brand Identity" />
-      </CollageItem>
+      {items.map((item, index) => {
+        const label = item.label || `Item ${index + 1}`;
+        const imgSrc = item.src || item.img; // support either external/public path (src) or imported (img)
+        const alt = item.alt || label;
+        const href = item.href;
+
+        return (
+          <CollageItem key={index} data-label={label}>
+            {href ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                style={{ display: "block", width: "100%", height: "100%" }}
+              >
+                <img src={imgSrc} alt={alt} />
+              </a>
+            ) : (
+              <img src={imgSrc} alt={alt} />
+            )}
+          </CollageItem>
+        );
+      })}
     </CollageCont>
   );
 };
