@@ -9,7 +9,7 @@ const Foot = () => {
     <FootCont>
       <FootFinal>
         <FinalLeft>
-          <Paragraph>© {year} Latifur Rahman · All rights reserved.</Paragraph>
+          <Paragraph>© Latifur Rahman · All rights reserved.</Paragraph>
         </FinalLeft>
         <FinalRight>
           <a
