@@ -41,10 +41,32 @@ export const experiencesData = [
 // - img: imported asset (preferred for local src images)
 // - src: string URL or public path (e.g., "/my-image.jpg")
 
+// Collage tiles (directory) — control count, labels, links, and images here
+// Tip: replace the img with your own imported asset, or set `src: "/public-path.png"`
 export const collageItems = [
-  { label: "Content Scheduling", img: Collage1, href: "" },
-  { label: "Trivia Game Design", img: Collage2, href: "" },
-  { label: "Email Onboarding", img: Collage3, href: "" },
-  { label: "Paywall Popup", img: Collage4, href: "" },
-  { label: "Navigation Collapse", img: Collage5, href: "" },
+  {
+    label: "Blogs",
+    img: Collage1,
+    href: "https://blogs.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=blogs",
+  },
+  {
+    label: "Poetry",
+    img: Collage2,
+    href: "https://poetry.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=poetry",
+  },
+  {
+    label: "Gallery",
+    img: Collage3,
+    href: "https://gallery.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=gallery",
+  },
+  {
+    label: "Music",
+    img: Collage4,
+    href: "https://music.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=music",
+  },
+  {
+    label: "Philosophy",
+    img: Collage5,
+    href: "https://philosophy.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=philosophy",
+  },
 ];
