@@ -10,8 +10,10 @@ export const personalData = {
   description:
     "I craft solid and scalable frontend products with great user experiences. Highly skilled at progressive enhancement, design systems & UI Engineering.",
 
-  showProfileImage: false, // can be toggled to show(true)/hide(false) profile image
+  showProfileImage: true, // can be toggled to show(true)/hide(false) profile image
   profileImage: "/profile.jpg",
+  // Navbar logo (public path like "/my-logo.svg" or imported asset). Leave empty to use default SVG mark.
+  navLogo: "/favicon.png",
   linkedIn: "https://www.linkedin.com/in/latifur/",
   github: "https://github.com/itsLatifur",
   email: "itslatifur@gmail.com",

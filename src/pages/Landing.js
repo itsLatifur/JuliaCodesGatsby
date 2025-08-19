@@ -94,17 +94,6 @@ const HeroText = styled.div`
   }
 `;
 
-const HeroImageContainer = styled.div`
-  /* On mobile, go to the second row */
-  grid-row: 2;
-
-  /* On desktop, go to the second column in the first row */
-  @media (${QUERIES.large}) {
-    grid-row: 1;
-    grid-column: 2 / 3;
-  }
-`;
-
 const HeroImage = styled.img`
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -199,9 +188,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
         <LandingMidi
           style={{ paddingTop: 0, paddingBottom: 0, marginBottom: 36 }}
         >
-          <HeroGrid
-            className={personalData.showProfileImage ? "with-image" : ""}
-          >
+          <HeroGrid>
             {/* Text Column */}
             <HeroText>
               <Heading
@@ -249,15 +236,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
               </ButtonGroup>
             </HeroText>
 
-            {/* Image Column */}
-            {personalData.showProfileImage && (
-              <HeroImageContainer>
-                <HeroImage
-                  src={personalData.profileImage}
-                  alt="Latifur Rahman"
-                />
-              </HeroImageContainer>
-            )}
+            {/* Intentionally no image in hero; About section handles profile image */}
           </HeroGrid>
         </LandingMidi>
       </Card>
@@ -340,6 +319,31 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
             />
           </LandingMidi>
         </ProjectsWrapper>
+      </Card>
+
+      {/* About Section Card (below Case Studies, above Collage) */}
+      <Card mode={mode}>
+        <LandingMidi style={{ paddingTop: 0, paddingBottom: 0 }}>
+          <Heading2 id="about">About</Heading2>
+          <HeroGrid
+            className={personalData.showProfileImage ? "with-image" : ""}
+          >
+            {/* Text column mimics previous hero text styling */}
+            <HeroText>
+              <Paragraph style={{ marginTop: 0 }}>
+                {personalData.bio || personalData.description}
+              </Paragraph>
+            </HeroText>
+
+            {/* Image column appears only when flag is on */}
+            {personalData.showProfileImage && (
+              <HeroImage
+                src={personalData.profileImage}
+                alt={personalData.name}
+              />
+            )}
+          </HeroGrid>
+        </LandingMidi>
       </Card>
 
       {/* Collage section without a card */}
