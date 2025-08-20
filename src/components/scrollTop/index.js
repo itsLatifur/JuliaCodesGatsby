@@ -55,7 +55,7 @@ const Fab = styled.button`
   }
 
   @media (max-width: 767px) {
-    right: 90%;
+    right: 10%;
     bottom: calc(14px + env(safe-area-inset-bottom, 0px));
     width: 40px;
     height: 40px;
