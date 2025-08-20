@@ -45,10 +45,10 @@ const Collage = () => {
                 aria-label={label}
                 style={{ display: "block", width: "100%", height: "100%" }}
               >
-                <img src={imgSrc} alt={alt} />
+                <img src={imgSrc} alt={alt} loading="lazy" />
               </a>
             ) : (
-              <img src={imgSrc} alt={alt} />
+              <img src={imgSrc} alt={alt} loading="lazy" />
             )}
           </CollageItem>
         );

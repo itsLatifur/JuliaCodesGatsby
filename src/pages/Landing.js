@@ -22,7 +22,7 @@ import {
   Experience,
 } from "../components";
 import { Spread } from "../components/switch/styles";
-import { NewVid, Thumb } from "../images";
+import { NewVid, Thumb, signUp } from "../images";
 
 const Card = styled(Midi)`
   /* On mobile, cards have no special styling */
@@ -257,7 +257,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
       {/* Case Studies & Projects Card */}
       <Card mode={mode} noBottomPadding>
         {/* Main Title */}
-        <div style={{ color: "white" }}>
+        <div>
           <LandingMidi
             style={{
               margin: "0 auto",
@@ -276,14 +276,8 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
             <Link to="schedule">
               <ImageProj $image={Thumb} />
             </Link>
-            {/* Text container with blend mode */}
-            <div
-              style={{
-                color: "white",
-                paddingTop: "0px",
-                paddingLeft: "0px",
-              }}
-            >
+            {/* Text container */}
+            <div style={{ paddingTop: "0px", paddingLeft: "0px" }}>
               <Heading3
                 style={{
                   textAlign: "left",
@@ -298,12 +292,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
                   Content Variety & Scheduling
                 </StyledLink>
               </Heading3>
-              <Paragraph
-                style={{
-                  marginTop: "-4px",
-                  opacity: 0.4,
-                }}
-              >
+              <Paragraph style={{ marginTop: "-4px" }}>
                 Led research & design to solve content staleness problems
               </Paragraph>
             </div>
@@ -314,6 +303,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
             <ProjectVideo
               name="Redesigning B2B Signup"
               image={NewVid}
+              poster={signUp}
               url="marketing-site"
               description="Reimagining the signup flow for Atmosphere TV"
             />
