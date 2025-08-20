@@ -170,6 +170,16 @@ const ProjectsWrapper = styled.div`
   }
 `;
 
+// Use a real <img> for the above-the-fold thumbnail so the browser can
+// prioritize it as the LCP image.
+const LcpThumb = styled.img`
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 25px;
+  margin-bottom: 18px;
+`;
+
 const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
   const spreadClass =
     spread === "first" ? "growBlack" : spread === "second" ? "growWhite" : "";
@@ -272,9 +282,15 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
         <ProjectsWrapper>
           {/* --- Project 1 --- */}
           <LandingMidi style={{ margin: "0 auto" }}>
-            {/* Image container without blend mode */}
+            {/* LCP image as <img> with high fetch priority */}
             <Link to="schedule">
-              <ImageProj $image={Thumb} />
+              <LcpThumb
+                src={Thumb}
+                alt="Content Variety & Scheduling case study"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
             </Link>
             {/* Text container */}
             <div style={{ paddingTop: "0px", paddingLeft: "0px" }}>

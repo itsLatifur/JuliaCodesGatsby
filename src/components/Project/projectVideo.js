@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import QUERIES, { Heading3, Paragraph, Midi } from "../../theming/styles";
-import { Movie } from "../../images";
+// import { Movie } from "../../images";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -8,7 +8,7 @@ const ProjectVideo = ({
   name = "Project Name",
   description = "Passionate about facilitating excellent user experiences through site speed optimization, accessibility, and user testing. ",
   url = "project",
-  image = Movie, // video src
+  image = "", // video src
   poster,
 }) => {
   const ImageProj = styled.video`
