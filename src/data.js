@@ -19,7 +19,7 @@ export const personalData = {
   email: "itslatifur@gmail.com",
   resumeLink: "/resume.pdf",
   showExperiences: false, // can be toggled to show(true)/hide(false) experience section
-  showCollage: false, // toggle entire collage section on/off by using true/false
+  showCollage: false, // toggle entire collage section on/off
 };
 
 export const experiencesData = [
