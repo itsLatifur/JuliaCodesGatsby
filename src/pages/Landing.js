@@ -22,7 +22,9 @@ import {
   Experience,
 } from "../components";
 import { Spread } from "../components/switch/styles";
-import { NewVid, Thumb, signUp } from "../images";
+import NewVid from "../images/newvid.mp4";
+import Thumb from "../images/schedule/thumb.png";
+import signUp from "../images/marketing-site/signUp.png";
 
 const Card = styled(Midi)`
   /* On mobile, cards have no special styling */
@@ -346,6 +348,8 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
               <HeroImage
                 src={personalData.profileImage}
                 alt={personalData.name}
+                loading="lazy"
+                decoding="async"
               />
             )}
           </HeroGrid>
