@@ -21,10 +21,10 @@ const Collage = () => {
     },
   ];
 
-  // Use user-provided items if present; each item can have: { label, href?, src?, alt? }
+  // Use user-provided items if present; each item can have: { label, href?, src?, alt?, visible? }
   const items =
     Array.isArray(collageItems) && collageItems.length > 0
-      ? collageItems
+      ? collageItems.filter((i) => i?.visible !== false)
       : defaultItems;
 
   return (

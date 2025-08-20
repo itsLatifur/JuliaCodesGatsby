@@ -12,7 +12,7 @@ import QUERIES, {
 } from "../theming/styles";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { personalData, experiencesData } from "../data";
+import { personalData, experiencesData, collageItems } from "../data";
 import {
   Nav,
   Foot,
@@ -347,13 +347,16 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
       </Card>
 
       {/* Collage section without a card */}
-      <LandingMidi
-        style={{
-          paddingTop: 20,
-        }}
-      >
-        <Collage />
-      </LandingMidi>
+      {personalData.showCollage !== false &&
+        collageItems.filter?.((i) => i?.visible !== false).length > 0 && (
+          <LandingMidi
+            style={{
+              paddingTop: 20,
+            }}
+          >
+            <Collage />
+          </LandingMidi>
+        )}
 
       <LandingMidi style={{ marginBottom: "10px" }}>
         <Foot />

@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import QUERIES from "../../theming/styles";
 import { fadeIn } from "../../theming/animate";
-import CollageImage1 from "../../images/collage/collage1.png";
-import CollageImage2 from "../../images/collage/collage2.png";
-import CollageImage3 from "../../images/collage/collage3.png";
-import CollageImage4 from "../../images/collage/collage4.png";
-import CollageImage5 from "../../images/collage/collage5.png";
 
 export const CollageCont = styled.div`
   display: flex;
@@ -17,18 +12,20 @@ export const CollageCont = styled.div`
 export const CollageItem = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: white;
-  border: 2px solid rgb(255, 255, 255);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.13);
+  background-color: ${({ theme }) => theme.main};
+  border: 1px solid ${({ theme }) => theme.textMain}22;
   border-radius: 11px;
   width: 90px;
   height: 90px;
   transition:
-    transform 0.3s ease-in-out,
-    box-shadow 0.3s ease-in-out;
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
   position: relative;
   overflow: visible;
   will-change: transform;
+  box-sizing: border-box;
+  padding: 0 8px; /* small horizontal breathing room */
 
   @media (${QUERIES.xs}) {
     width: 120px;
@@ -48,8 +45,8 @@ export const CollageItem = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transform: translateZ(0);
+    object-fit: contain;
+    object-position: center center;
     -webkit-transform: translateZ(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -62,8 +59,9 @@ export const CollageItem = styled.div`
 
   &:hover {
     cursor: pointer;
-    transform: rotate(0deg) !important;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.23);
+    transform: rotate(0deg) scale(1.02) !important;
+    border-color: ${({ theme }) => theme.textMain}44;
+    background-color: ${({ theme }) => theme.textMain}08; /* subtle emphasis */
   }
 
   &::after {

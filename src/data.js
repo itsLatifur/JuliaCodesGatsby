@@ -1,8 +1,8 @@
-import Collage1 from "./images/collage/collage1.png";
-import Collage2 from "./images/collage/collage2.gif";
-import Collage3 from "./images/collage/collage3.png";
-import Collage4 from "./images/collage/collage4.gif";
-import Collage5 from "./images/collage/collage5.gif";
+import BlogsGif from "./images/collage/blogs.gif";
+import PoetryGif from "./images/collage/poetry.gif";
+import GalleryGif from "./images/collage/gallery.gif";
+import MusicGif from "./images/collage/music.gif";
+import PhilosophyGif from "./images/collage/philosophy.gif";
 
 export const personalData = {
   name: "Latifur Rahman",
@@ -19,6 +19,7 @@ export const personalData = {
   email: "itslatifur@gmail.com",
   resumeLink: "/resume.pdf",
   showExperiences: false, // can be toggled to show(true)/hide(false) experience section
+  showCollage: false, // toggle entire collage section on/off
 };
 
 export const experiencesData = [
@@ -46,27 +47,32 @@ export const experiencesData = [
 export const collageItems = [
   {
     label: "Blogs",
-    img: Collage1,
+    img: BlogsGif,
     href: "https://blogs.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=blogs",
+    visible: true,
   },
   {
     label: "Poetry",
-    img: Collage2,
+    img: PoetryGif,
     href: "https://poetry.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=poetry",
+    visible: true,
   },
   {
     label: "Gallery",
-    img: Collage3,
+    img: GalleryGif,
     href: "https://gallery.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=gallery",
+    visible: true,
   },
   {
     label: "Music",
-    img: Collage4,
+    img: MusicGif,
     href: "https://music.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=music",
+    visible: true,
   },
   {
     label: "Philosophy",
-    img: Collage5,
+    img: PhilosophyGif,
     href: "https://philosophy.latifur.dev/?utm_source=portfolio&utm_medium=collage&utm_campaign=directory&utm_content=philosophy",
+    visible: true,
   },
 ];
