@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import lightTheme, { darkTheme } from "./theming/themeContext";
 import GlobalStyles from "./theming/global";
 import { AppWrapper, Landing } from "./pages";
+import { ScrollTop } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 const Movie = lazy(() => import("./pages").then((m) => ({ default: m.Movie })));
 const VulnPage = lazy(() =>
@@ -115,6 +116,7 @@ const App = () => {
               }
             />
           </Routes>
+          <ScrollTop />
         </Suspense>
       </BrowserRouter>
     </ThemeProvider>
