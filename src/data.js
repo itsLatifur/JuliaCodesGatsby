@@ -8,7 +8,7 @@ export const personalData = {
   name: "Md. Latifur Rahman",
   role: ["Web Developer"],
   description:
-    "I craft solid and scalable frontend products",
+    "I craft solid and responsive products using JavaScript, React.js, and MySQL. Currently learning Express.js",
 
   showProfileImage: true, // can be toggled to show(true)/hide(false) profile image
   profileImage: "/profile.jpg",
