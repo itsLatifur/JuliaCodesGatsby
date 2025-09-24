@@ -82,6 +82,23 @@ const HeroGrid = styled.div`
   }
 `;
 
+// Grid for About: match the vertical gap used before the first Case Studies image
+// Mobile: 24px, Tablet: 48px, Desktop: unchanged (handled by .with-image)
+const AboutGrid = styled(HeroGrid)`
+  /* Match Case studies spacing: 24px on mobile */
+  margin-top: 24px;
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    gap: 48px; /* tablet grid gap */
+    margin-top: 48px; /* tablet spacing from heading to image */
+  }
+
+  /* Desktop: keep existing spacing unchanged */
+  @media (${QUERIES.large}) {
+    margin-top: 0;
+  }
+`;
+
 const HeroText = styled.div`
   color: white;
   mix-blend-mode: difference;
@@ -98,6 +115,7 @@ const HeroText = styled.div`
 
 const HeroImage = styled.img`
   width: 100%;
+  max-width: 200px; /* smaller on mobile */
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 8px;
@@ -105,8 +123,38 @@ const HeroImage = styled.img`
   margin: 0 auto;
   display: block;
 
+  /* Tablet */
   @media (min-width: 768px) {
+    max-width: 260px;
+  }
+
+  /* Desktop and up: unchanged */
+  @media (${QUERIES.large}) {
     max-width: 300px;
+  }
+`;
+
+// About-specific ordering: image above text on mobile/tablet, unchanged on desktop
+const AboutText = styled(HeroText)`
+  /* Mobile/Tablet: show text below image */
+  grid-row: 2;
+
+  @media (${QUERIES.large}) {
+    /* Desktop: text left as before */
+    grid-row: 1;
+    grid-column: 1 / 2;
+  }
+`;
+
+const AboutImage = styled(HeroImage)`
+  /* Mobile/Tablet: show image first */
+  grid-row: 1;
+
+  @media (${QUERIES.large}) {
+    /* Desktop: image right as before */
+    grid-row: 1;
+    grid-column: 2 / 3;
+    justify-self: end;
   }
 `;
 
@@ -333,26 +381,26 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
       <Card mode={mode}>
         <LandingMidi style={{ paddingTop: 0, paddingBottom: 0 }}>
           <Heading2 id="about">About</Heading2>
-          <HeroGrid
+          <AboutGrid
             className={personalData.showProfileImage ? "with-image" : ""}
           >
             {/* Text column mimics previous hero text styling */}
-            <HeroText>
+            <AboutText>
               <Paragraph style={{ marginTop: 0 }}>
                 {personalData.about ?? personalData.description}
               </Paragraph>
-            </HeroText>
+            </AboutText>
 
             {/* Image column appears only when flag is on */}
             {personalData.showProfileImage && (
-              <HeroImage
+              <AboutImage
                 src={personalData.profileImage}
                 alt={personalData.name}
                 loading="lazy"
                 decoding="async"
               />
             )}
-          </HeroGrid>
+          </AboutGrid>
         </LandingMidi>
       </Card>
 
