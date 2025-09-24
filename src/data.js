@@ -9,6 +9,9 @@ export const personalData = {
   role: ["Web Developer"],
   description:
     "I craft solid and responsive products using JavaScript, React.js, and MySQL. Currently learning Express.js",
+  // About section text (independent from hero description)
+  about:
+    "I’m a software engineer focused on building fast, accessible web experiences. Outside of work, I enjoy writing, design systems, and tinkering with performance.",
 
   showProfileImage: true, // can be toggled to show(true)/hide(false) profile image
   profileImage: "/profile.jpg",

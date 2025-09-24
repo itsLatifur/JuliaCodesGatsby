@@ -339,7 +339,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
             {/* Text column mimics previous hero text styling */}
             <HeroText>
               <Paragraph style={{ marginTop: 0 }}>
-                {personalData.bio || personalData.description}
+                {personalData.about ?? personalData.description}
               </Paragraph>
             </HeroText>
 
