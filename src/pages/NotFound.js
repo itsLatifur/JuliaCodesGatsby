@@ -180,18 +180,7 @@ const Sway = styled.div`
   animation: ${sway} 6s ease-in-out infinite;
 `;
 
-const Shadow = styled.div`
-  width: 120px;
-  height: 16px;
-  background: ${GHOST_TINT}22;
-  border-radius: 50%;
-  margin: -8px auto 8px;
-  filter: blur(2px);
-  @media (max-width: 600px) {
-    width: 96px;
-    height: 14px;
-  }
-`;
+// (shadow under ghost removed)
 
 const Tip = styled(Paragraph)`
   text-align: center;
@@ -268,14 +257,7 @@ const shootingTravel = keyframes`
   100% { transform: translate(-24vw, 24vh); opacity: 0; }
 `;
 
-// Mobile path: enter from the right edge and travel straight diagonally to left
-// Start 30px higher than before to ensure it enters above the moon
-const shootingTravelMobile = keyframes`
-  0%   { transform: translate(102vw, calc(2vh - 30px)); opacity: 0; }
-  2%   { opacity: 1; }
-  98%  { opacity: 1; }
-  100% { transform: translate(-24vw, 24vh); opacity: 0; }
-`;
+// (mobile shooting star travel removed; star is hidden on mobile)
 
 // Alternate path for variety
 const shootingTravelB = keyframes`
@@ -315,16 +297,8 @@ const ShootingStar = styled.div`
     transform: rotate(var(--angle, -20deg));
   }
   @media (max-width: 600px) {
-    width: 1.5px;
-    height: 1.5px;
-    &::before {
-      height: 1.5px;
-      width: 88px;
-      transform: rotate(-16deg);
-    }
-    /* Use mobile path that enters from the right side */
-    animation: ${shootingTravelMobile} var(--dur, 5s) linear infinite
-      var(--delay, 0s);
+    /* Hide on mobile */
+    display: none;
   }
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -713,18 +687,7 @@ const ExtraOffset = styled.div`
   /* No scaling on mobile to keep text crisp */
 `;
 
-const LayerToggle = styled.div`
-  margin-top: 10px;
-  text-align: center;
-  color: ${GHOST_TINT};
-  font-size: 12px;
-  opacity: 0.9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  user-select: none;
-`;
+// (layer toggle control removed)
 
 const NotFound = () => {
   const navigate = useNavigate();
