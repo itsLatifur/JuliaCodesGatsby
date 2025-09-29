@@ -1,0 +1,21 @@
+{
+  "short_name": "Latifur",
+  "name": "Latifur Rahman Portfolio",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#151042",
+  "background_color": "#0f0b2e"
+}

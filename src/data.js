@@ -36,6 +36,11 @@ export const personalData = {
   // Projects visibility on the homepage (always visible on /projects route)
   showProjectsOnHome: true,
 
+  // Analytics configuration (set your GA4 ID here to enable analytics)
+  analytics: {
+    gaMeasurementId: "", // e.g., "G-XXXXXXX"; leave empty to disable
+  },
+
   // Skills & tooling chips (shown under the hero)
   // Objects kept for potential future metadata (order only)
   skills: [

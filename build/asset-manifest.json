@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.41c288f5.js",
+    "main.js": "/static/js/main.896d999b.js",
     "static/js/488.cd7cecd1.chunk.js": "/static/js/488.cd7cecd1.chunk.js",
     "static/media/prototype.gif": "/static/media/prototype.88c74f995e128cf0323b.gif",
     "static/media/collage2.gif": "/static/media/collage2.95b4bb517501247469a6.gif",
@@ -46,18 +46,23 @@
     "static/media/sketch3.png": "/static/media/sketch3.4b872d0284a8bdb38dd3.png",
     "static/media/log4j-2.png": "/static/media/log4j-2.2fad7003a7d06ddfddbd.png",
     "static/media/signUp.png": "/static/media/signUp.3958494f07ba95ecced9.png",
+    "static/media/1.png": "/static/media/1.890e8b57869dc9234915.png",
     "static/media/layout4.png": "/static/media/layout4.99f86d98a2e60b226500.png",
+    "static/media/4.png": "/static/media/4.c988cebbcd85b611672b.png",
     "static/media/affinity.png": "/static/media/affinity.8b4077dafe1f04eca232.png",
     "static/media/sketch2.png": "/static/media/sketch2.d0d224aa0c906c578930.png",
+    "static/media/3.png": "/static/media/3.566587cd4d54791047d6.png",
     "static/media/interview.png": "/static/media/interview.75230e9e3206ad5b00b2.png",
     "static/media/log4j-1.png": "/static/media/log4j-1.4c51dfcdd660ab184a38.png",
     "static/media/persona-1.png": "/static/media/persona-1.651773a087f59d3ef0ef.png",
     "static/media/sketch1.png": "/static/media/sketch1.8e26f14c4a1736ffd22b.png",
     "static/media/onboarding.png": "/static/media/onboarding.89baa661d88195faa82f.png",
     "static/media/vuln.png": "/static/media/vuln.750cd808f20742f67f6f.png",
+    "static/media/5.png": "/static/media/5.3793169888c6caf9fce9.png",
     "static/media/InProgress.png": "/static/media/InProgress.56809265a1662d303912.png",
     "static/media/prototype-mess.png": "/static/media/prototype-mess.d9e6291ae5f49de4a225.png",
     "static/media/layout5.png": "/static/media/layout5.ed11262b145f7010d5b2.png",
+    "static/media/2.png": "/static/media/2.15a7d177cc4238662ff4.png",
     "static/media/scheduleDemo.png": "/static/media/scheduleDemo.ce5963e245b0704c0bf3.png",
     "static/media/vuln-wire2.png": "/static/media/vuln-wire2.563da705536830579b15.png",
     "static/media/selection-ui.png": "/static/media/selection-ui.efe0e2f263f002a86396.png",
@@ -88,10 +93,12 @@
     "static/media/error.svg": "/static/media/error.7f89cd43c8f1ab3d19e71ee66c896a3e.svg",
     "static/media/lock.svg": "/static/media/lock.f9d87cf9f9a3e7a2e1c62357440e857a.svg",
     "static/media/send.svg": "/static/media/send.7cae41a6384dc44f26ca25c0a971d9dd.svg",
-    "main.41c288f5.js.map": "/static/js/main.41c288f5.js.map",
+    "static/media/external.svg": "/static/media/external.7fc2a1398f05a9f19d6e4e284e72dea8.svg",
+    "static/media/code.svg": "/static/media/code.2ce0f85ccd6f23660b55e0ae3671d0bc.svg",
+    "main.896d999b.js.map": "/static/js/main.896d999b.js.map",
     "488.cd7cecd1.chunk.js.map": "/static/js/488.cd7cecd1.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.41c288f5.js"
+    "static/js/main.896d999b.js"
   ]
 }

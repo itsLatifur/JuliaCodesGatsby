@@ -1,19 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Analytics (Optional: Delete or replace with your own ID) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-2ZJLRR838Z"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-2ZJLRR838Z");
-    </script>
+    <!-- Analytics: Removed external GA to keep site fully local. If needed, re-introduce via a dynamic loader in app code using an env var. -->
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -96,7 +84,7 @@
             "url": "https://www.latifur.dev/",
             "jobTitle": "Software Engineer & Web Developer",
             "description": "Passionate web developer and tech enthusiast specializing in modern web technologies and creative solutions.",
-            "image": "https://www.latifur.dev/profile.jpg",
+            "image": "%PUBLIC_URL%/profile.jpg",
             "email": "mailto:hello@latifur.dev",
             "birthDate": "2003-01-12",
             "address": {

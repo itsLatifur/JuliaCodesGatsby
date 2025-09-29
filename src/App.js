@@ -1,10 +1,12 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { useDarkMode } from "./hooks";
 import { ThemeProvider } from "styled-components";
 import lightTheme, { darkTheme } from "./theming/themeContext";
 import GlobalStyles from "./theming/global";
 import { AppWrapper, Landing, NotFound } from "./pages";
 import { ScrollTop } from "./components";
+import { personalData } from "./data";
+import { initGA } from "./analytics/ga";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 const Movie = lazy(() => import("./pages").then((m) => ({ default: m.Movie })));
 const VulnPage = lazy(() =>
@@ -30,6 +32,11 @@ const Khorochnama = lazy(() =>
 const App = () => {
   const [mode, toggleMode, spread, componentMounted, setDisableScroll] =
     useDarkMode();
+  // Initialize analytics exactly once based on data.js configuration
+  useEffect(() => {
+    const id = personalData?.analytics?.gaMeasurementId;
+    if (id) initGA(id);
+  }, []);
   if (!componentMounted) {
     return <div />;
   }

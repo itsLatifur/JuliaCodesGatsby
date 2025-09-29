@@ -1,181 +1,447 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Md. Latifur Rahman — Resume</title>
-  <style>
-    :root {
-      --text: #111;
-      --muted: #444;
-      --rule: #000;
-      --link: #1155cc;
-    }
-    html, body {
-      padding: 0; margin: 0; color: var(--text);
-      font-family: "Times New Roman", Times, serif;
-      line-height: 1.3; font-size: 12pt; background: #fff;
-    }
-  .page { max-width: 800px; margin: 20px auto 40px; padding: 0 28px; }
-  header { text-align: center; margin-bottom: 6px; }
-  header h1 { font-size: 19pt; margin: 0 0 2px; font-weight: 700; }
-  .subhead { color: var(--muted); margin: 0 0 6px; }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Md. Latifur Rahman — Resume</title>
+    <style>
+      :root {
+        --text: #111;
+        --muted: #444;
+        --rule: #000;
+        --link: #1155cc;
+      }
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        color: var(--text);
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.3;
+        font-size: 12pt;
+        background: #fff;
+      }
+      .page {
+        max-width: 800px;
+        margin: 20px auto 40px;
+        padding: 0 28px;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 6px;
+      }
+      header h1 {
+        font-size: 19pt;
+        margin: 0 0 2px;
+        font-weight: 700;
+      }
+      .subhead {
+        color: var(--muted);
+        margin: 0 0 6px;
+      }
 
-    /* Contacts two-column like Word layout */
-  .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; margin: 6px 0 8px; }
-    .contacts-grid .left, .contacts-grid .right { display: grid; gap: 4px; }
-    .contacts-grid b { font-weight: 700; }
-    a { color: var(--link); text-decoration: underline; }
-  .btn-row { display: flex; justify-content: flex-end; margin: 8px 0 0; }
-  .btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #000; color: #000; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 10.5pt; cursor: pointer; background: transparent; }
-  .btn:hover { background: #000; color: #fff; }
-  .icon { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+      /* Contacts two-column like Word layout */
+      .contacts-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 16px;
+        margin: 6px 0 8px;
+      }
+      .contacts-grid .left,
+      .contacts-grid .right {
+        display: grid;
+        gap: 4px;
+      }
+      .contacts-grid b {
+        font-weight: 700;
+      }
+      a {
+        color: var(--link);
+        text-decoration: underline;
+      }
+      .btn-row {
+        display: flex;
+        justify-content: flex-end;
+        margin: 8px 0 0;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid #000;
+        color: #000;
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 10.5pt;
+        cursor: pointer;
+        background: transparent;
+      }
+      .btn:hover {
+        background: #000;
+        color: #fff;
+      }
+      .icon {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        fill: none;
+      }
 
-    /* Section headings and rules */
-  h2 { font-size: 11.5pt; margin: 8px 0 2px; font-weight: 700; }
-  hr { border: 0; border-top: 1.2px solid var(--rule); margin: 3px 0 6px; }
+      /* Section headings and rules */
+      h2 {
+        font-size: 11.5pt;
+        margin: 8px 0 2px;
+        font-weight: 700;
+      }
+      hr {
+        border: 0;
+        border-top: 1.2px solid var(--rule);
+        margin: 3px 0 6px;
+      }
 
-    /* Dash list bullets */
-  ul { list-style: none; margin: 4px 0 0 0; padding: 0; }
-  ul.dash li { position: relative; padding-left: 12px; margin: 4px 0; }
-    ul.dash li::before { content: "-"; position: absolute; left: 0; top: 0; }
+      /* Dash list bullets */
+      ul {
+        list-style: none;
+        margin: 4px 0 0 0;
+        padding: 0;
+      }
+      ul.dash li {
+        position: relative;
+        padding-left: 12px;
+        margin: 4px 0;
+      }
+      ul.dash li::before {
+        content: "-";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
 
-    .row { display: flex; justify-content: space-between; gap: 8px; }
-    .muted { color: var(--muted); }
-    .kvline { margin: 2px 0; }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .kvline {
+        margin: 2px 0;
+      }
 
-    /* Print */
-  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
-    @media print {
-      html, body { font-size: 10.5pt; line-height: 1.25; }
-      .page { max-width: none; margin: 0; padding: 0; }
-      header h1 { font-size: 16pt; }
-      .subhead { margin-bottom: 4px; }
-      .contacts-grid { gap: 2px 12px; }
-      h2 { font-size: 10.75pt; margin: 6px 0 2px; }
-      hr { margin: 2px 0 4px; border-top-width: 1px; }
-      ul { margin-top: 2px; }
-      ul.dash li { margin: 2px 0; padding-left: 10px; }
-      .row { gap: 4px; }
-      section, header, .contacts-grid, .row, ul, p { page-break-inside: avoid; }
-      a { color: #000; text-decoration: underline; }
-      .btn-row { display: none; }
-    }
+      /* Print */
+      @page {
+        size: A4;
+        margin: 14mm 14mm 14mm 14mm;
+      }
+      @media print {
+        html,
+        body {
+          font-size: 10.5pt;
+          line-height: 1.25;
+        }
+        .page {
+          max-width: none;
+          margin: 0;
+          padding: 0;
+        }
+        header h1 {
+          font-size: 16pt;
+        }
+        .subhead {
+          margin-bottom: 4px;
+        }
+        .contacts-grid {
+          gap: 2px 12px;
+        }
+        h2 {
+          font-size: 10.75pt;
+          margin: 6px 0 2px;
+        }
+        hr {
+          margin: 2px 0 4px;
+          border-top-width: 1px;
+        }
+        ul {
+          margin-top: 2px;
+        }
+        ul.dash li {
+          margin: 2px 0;
+          padding-left: 10px;
+        }
+        .row {
+          gap: 4px;
+        }
+        section,
+        header,
+        .contacts-grid,
+        .row,
+        ul,
+        p {
+          page-break-inside: avoid;
+        }
+        a {
+          color: #000;
+          text-decoration: underline;
+        }
+        .btn-row {
+          display: none;
+        }
+      }
 
-    /* Mobile responsiveness */
-    @media (max-width: 640px) {
-      html, body { font-size: 11pt; }
-      .page { margin: 12px auto 24px; padding: 0 14px; }
-      header h1 { font-size: 16pt; }
-      .contacts-grid { grid-template-columns: 1fr; gap: 4px; }
-      .row { flex-direction: column; gap: 2px; }
-      h2 { font-size: 11pt; margin-top: 6px; }
-      hr { margin: 3px 0 5px; }
-      ul.dash li { padding-left: 12px; margin: 3px 0; }
-      a { word-break: break-word; overflow-wrap: anywhere; }
-    }
-  </style>
-</head>
-<body>
-  <main class="page" role="main">
-    <header>
-      <h1>Md. Latifur Rahman</h1>
-      <p class="subhead">Dhaka, Bangladesh</p>
-      <div class="contacts-grid">
-        <div class="left">
-          <div><b>Email:</b> <a href="mailto:itslatifur@gmail.com">itslatifur@gmail.com</a></div>
-          <div><b>GitHub:</b> <a href="https://github.com/itsLatifur" target="_blank" rel="noopener">https://github.com/itsLatifur</a></div>
+      /* Mobile responsiveness */
+      @media (max-width: 640px) {
+        html,
+        body {
+          font-size: 11pt;
+        }
+        .page {
+          margin: 12px auto 24px;
+          padding: 0 14px;
+        }
+        header h1 {
+          font-size: 16pt;
+        }
+        .contacts-grid {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+        .row {
+          flex-direction: column;
+          gap: 2px;
+        }
+        h2 {
+          font-size: 11pt;
+          margin-top: 6px;
+        }
+        hr {
+          margin: 3px 0 5px;
+        }
+        ul.dash li {
+          padding-left: 12px;
+          margin: 3px 0;
+        }
+        a {
+          word-break: break-word;
+          overflow-wrap: anywhere;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page" role="main">
+      <header>
+        <h1>Md. Latifur Rahman</h1>
+        <p class="subhead">Dhaka, Bangladesh</p>
+        <div class="contacts-grid">
+          <div class="left">
+            <div>
+              <b>Email:</b>
+              <a href="mailto:itslatifur@gmail.com">itslatifur@gmail.com</a>
+            </div>
+            <div>
+              <b>GitHub:</b>
+              <a
+                href="https://github.com/itsLatifur"
+                target="_blank"
+                rel="noopener"
+                >https://github.com/itsLatifur</a
+              >
+            </div>
+          </div>
+          <div class="right">
+            <div>
+              <b>Phone:</b> <a href="tel:+8801568930183">+8801568930183</a>
+            </div>
+            <div>
+              <b>LinkedIn:</b>
+              <a
+                href="https://linkedin.com/in/latifur"
+                target="_blank"
+                rel="noopener"
+                >https://linkedin.com/in/latifur</a
+              >
+            </div>
+          </div>
         </div>
-        <div class="right">
-          <div><b>Phone:</b> <a href="tel:+8801568930183">+8801568930183</a></div>
-          <div><b>LinkedIn:</b> <a href="https://linkedin.com/in/latifur" target="_blank" rel="noopener">https://linkedin.com/in/latifur</a></div>
+      </header>
+      <div class="btn-row" data-html2canvas-ignore="true">
+        <a
+          href="/Latifur_Rahman_Resume.pdf"
+          download="Latifur_Rahman_Resume.pdf"
+          class="btn"
+          aria-label="Download resume PDF"
+        >
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M7 10l5 5 5-5"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12 15V3"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Download PDF
+        </a>
+      </div>
+
+      <section aria-labelledby="summary">
+        <h2 id="summary">Summary</h2>
+        <hr />
+        <p>
+          Final‑year CSE student with hands‑on experience in building responsive
+          frontend applications with React and JavaScript. Seeking a challenging
+          internship to leverage my skills and grow as a full‑stack software
+          engineer in a real‑world environment.
+        </p>
+      </section>
+
+      <section aria-labelledby="projects">
+        <h2 id="projects">Projects</h2>
+        <hr />
+
+        <div>
+          <p class="row">
+            <b>KhorochNama: Full‑stack Expense Tracker</b>
+            <span class="muted">(React, Express, MySQL, REST)</span>
+          </p>
+          <ul class="dash">
+            <li>
+              Engineered JWT/bcrypt auth, enforced protected routes, and
+              validated user input.
+            </li>
+            <li>
+              Architected a paginated RESTful API (5+ endpoints) with robust
+              error‑handling middleware.
+            </li>
+            <li>
+              Achieved 90+ Lighthouse performance score; optimized UI rendering,
+              API queries to reduce latency.
+            </li>
+            <li>Deployed frontend on Netlify and backend on Render.</li>
+          </ul>
+          <p class="muted">
+            GitHub:
+            <a
+              href="https://github.com/itsLatifur/expense-tracker"
+              target="_blank"
+              rel="noopener"
+              >github.com/itsLatifur/expense-tracker</a
+            >
+            &nbsp;|&nbsp; Live:
+            <a
+              href="https://khorochnama.netlify.app/"
+              target="_blank"
+              rel="noopener"
+              >khorochnama.netlify.app</a
+            >
+          </p>
         </div>
-      </div>
-    </header>
-    <div class="btn-row" data-html2canvas-ignore="true">
-      <a href="/resume.pdf" download="Latifur_Rahman_Resume.pdf" class="btn" aria-label="Download resume PDF">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M7 10l5 5 5-5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M12 15V3" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        Download PDF
-      </a>
-    </div>
 
-    <section aria-labelledby="summary">
-      <h2 id="summary">Summary</h2>
-      <hr />
-      <p>
-        Final‑year CSE student with hands‑on experience in building responsive frontend applications with React and
-        JavaScript. Seeking a challenging internship to leverage my skills and grow as a full‑stack software engineer in a
-        real‑world environment.
-      </p>
-    </section>
+        <div style="margin-top: 8px">
+          <p class="row">
+            <b>WordsMaster: Word Guessing Game</b>
+            <span class="muted">(Vanilla JS, HTML, CSS, Bootstrap)</span>
+          </p>
+          <ul class="dash">
+            <li>
+              Built dynamic scoring (time/streak bonuses), high‑score tracking,
+              in‑game hints, and sound controls.
+            </li>
+            <li>
+              Developed core game logic and managed state natively in Vanilla
+              JS; deployed to Netlify.
+            </li>
+          </ul>
+          <p class="muted">
+            GitHub:
+            <a
+              href="https://github.com/itsLatifur/WordMaster"
+              target="_blank"
+              rel="noopener"
+              >github.com/itsLatifur/WordMaster</a
+            >
+            &nbsp;|&nbsp; Live:
+            <a
+              href="https://wordsmaster.netlify.app/"
+              target="_blank"
+              rel="noopener"
+              >wordsmaster.netlify.app</a
+            >
+          </p>
+        </div>
+      </section>
 
-    <section aria-labelledby="projects">
-      <h2 id="projects">Projects</h2>
-      <hr />
-
-      <div>
-        <p class="row"><b>KhorochNama: Full‑stack Expense Tracker</b> <span class="muted">(React, Express, MySQL, REST)</span></p>
+      <section aria-labelledby="skills">
+        <h2 id="skills">Skills</h2>
+        <hr />
         <ul class="dash">
-          <li>Engineered JWT/bcrypt auth, enforced protected routes, and validated user input.</li>
-          <li>Architected a paginated RESTful API (5+ endpoints) with robust error‑handling middleware.</li>
-          <li>Achieved 90+ Lighthouse performance score; optimized UI rendering, API queries to reduce latency.</li>
-          <li>Deployed frontend on Netlify and backend on Render.</li>
+          <li><b>Languages:</b> JavaScript, SQL, C++</li>
+          <li>
+            <b>Frontend:</b> React.js, HTML5, CSS3, Bootstrap, Tailwind CSS
+          </li>
+          <li><b>Backend:</b> Express.js, REST APIs</li>
+          <li>
+            <b>Tools &amp; Database:</b> Git, GitHub, Netlify, Postman, MySQL
+          </li>
         </ul>
-        <p class="muted">
-          GitHub: <a href="https://github.com/itsLatifur/expense-tracker" target="_blank" rel="noopener">github.com/itsLatifur/expense-tracker</a>
-          &nbsp;|&nbsp; Live: <a href="https://khorochnama.netlify.app/" target="_blank" rel="noopener">khorochnama.netlify.app</a>
-        </p>
-      </div>
+      </section>
 
-      <div style="margin-top:8px;">
-        <p class="row"><b>WordsMaster: Word Guessing Game</b> <span class="muted">(Vanilla JS, HTML, CSS, Bootstrap)</span></p>
+      <section aria-labelledby="education">
+        <h2 id="education">Education</h2>
+        <hr />
+        <p>
+          <b>International University of Business Agriculture and Technology</b
+          ><br />BSc in CSE (2022–2025, Expected)<br />CGPA: 3.28 (up to 10th
+          semester)
+        </p>
+        <p>
+          <b>Tongi Government College</b><br />HSC (2018–2020)<br />GPA: 5.00
+        </p>
+        <p>
+          <b>Mamdee Mollah High School</b><br />SSC (2017–2018)<br />GPA: 5.00
+        </p>
+      </section>
+
+      <section aria-labelledby="research">
+        <h2 id="research">Thesis / Research Work</h2>
+        <hr />
         <ul class="dash">
-          <li>Built dynamic scoring (time/streak bonuses), high‑score tracking, in‑game hints, and sound controls.</li>
-          <li>Developed core game logic and managed state natively in Vanilla JS; deployed to Netlify.</li>
+          <li>
+            “Low‑Resource Sentiment Classification for Regional Bangla Dialects
+            Using BanglaBERT” (Ongoing, 2025)
+          </li>
         </ul>
-        <p class="muted">
-          GitHub: <a href="https://github.com/itsLatifur/WordMaster" target="_blank" rel="noopener">github.com/itsLatifur/WordMaster</a>
-          &nbsp;|&nbsp; Live: <a href="https://wordsmaster.netlify.app/" target="_blank" rel="noopener">wordsmaster.netlify.app</a>
-        </p>
-      </div>
-    </section>
+      </section>
 
-    <section aria-labelledby="skills">
-      <h2 id="skills">Skills</h2>
-      <hr />
-      <ul class="dash">
-        <li><b>Languages:</b> JavaScript, SQL, C++</li>
-        <li><b>Frontend:</b> React.js, HTML5, CSS3, Bootstrap, Tailwind CSS</li>
-        <li><b>Backend:</b> Express.js, REST APIs</li>
-        <li><b>Tools &amp; Database:</b> Git, GitHub, Netlify, Postman, MySQL</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="education">
-      <h2 id="education">Education</h2>
-      <hr />
-  <p><b>International University of Business Agriculture and Technology</b><br/>BSc in CSE (2022–2025, Expected)<br/>CGPA: 3.28 (up to 10th semester)</p>
-  <p><b>Tongi Government College</b><br/>HSC (2018–2020)<br/>GPA: 5.00</p>
-  <p><b>Mamdee Mollah High School</b><br/>SSC (2017–2018)<br/>GPA: 5.00</p>
-    </section>
-
-    <section aria-labelledby="research">
-      <h2 id="research">Thesis / Research Work</h2>
-      <hr />
-      <ul class="dash"><li>“Low‑Resource Sentiment Classification for Regional Bangla Dialects Using BanglaBERT” (Ongoing, 2025)</li></ul>
-    </section>
-
-    <section aria-labelledby="certs">
-      <h2 id="certs">Certifications</h2>
-      <hr />
-  <ul class="dash"><li>"Web Development Essentials with HTML, CSS, JavaScript, and React" by EDGE, Bangladesh Computer Council, ICT Division (Completed, 2025)</li></ul>
-    </section>
-  </main>
-  <!-- html2pdf for client-side PDF generation -->
-  
-</body>
+      <section aria-labelledby="certs">
+        <h2 id="certs">Certifications</h2>
+        <hr />
+        <ul class="dash">
+          <li>
+            "Web Development Essentials with HTML, CSS, JavaScript, and React"
+            by EDGE, Bangladesh Computer Council, ICT Division (Completed, 2025)
+          </li>
+        </ul>
+      </section>
+    </main>
+    <!-- html2pdf for client-side PDF generation -->
+  </body>
 </html>

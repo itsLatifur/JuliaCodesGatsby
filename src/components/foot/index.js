@@ -4,7 +4,6 @@ import { Paragraph } from "../../theming/styles";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Foot = () => {
-  const year = new Date().getFullYear();
   return (
     <FootCont>
       <FootFinal>
@@ -24,7 +23,7 @@ const Foot = () => {
                 justifyContent: "center",
               }}
             >
-              Email <FaEnvelope style={{ marginLeft: "4px" }} />
+              Email <FaEnvelope style={{ marginLeft: 4 }} />
             </Paragraph>
           </a>
           <a
@@ -39,7 +38,7 @@ const Foot = () => {
                 justifyContent: "center",
               }}
             >
-              LinkedIn <FaLinkedin style={{ marginLeft: "4px" }} />
+              LinkedIn <FaLinkedin style={{ marginLeft: 4 }} />
             </Paragraph>
           </a>
           <a
@@ -54,7 +53,7 @@ const Foot = () => {
                 justifyContent: "center",
               }}
             >
-              GitHub <FaGithub style={{ marginLeft: "4px" }} />
+              GitHub <FaGithub style={{ marginLeft: 4 }} />
             </Paragraph>
           </a>
         </FinalRight>
