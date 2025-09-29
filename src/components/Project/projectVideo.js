@@ -124,18 +124,19 @@ const ProjectVideo = ({
     return () => obs.disconnect();
   }, [effectiveAutoplay, canLoad, hovering]);
 
-  // Cleanup
+  // Cleanup: pause the exact node referenced at mount to avoid stale ref issues
   useEffect(() => {
+    const node = videoRef.current;
     return () => {
       try {
-        videoRef.current && videoRef.current.pause();
+        if (node && typeof node.pause === "function") node.pause();
       } catch (_) {}
     };
   }, []);
 
   return (
     <Project>
-      <Link to={`/${url}`} tabIndex="-1">
+      <Link to={`/${url}`}>
         <Frame>
           <LoaderOverlay visible={!hasShownFrame || !canLoad} size={28} />
           <ImageProj
@@ -202,7 +203,7 @@ const ProjectVideo = ({
           style={{ textAlign: "left", margin: 0, padding: 0 }}
           onMouseDown={(e) => e.preventDefault()}
         >
-          <Link to={`/${url}`}>{name}</Link>
+          <span>{name}</span>
         </Heading3>
 
         <Paragraph style={{ marginTop: "-4px" }}>{description}</Paragraph>

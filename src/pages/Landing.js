@@ -1059,7 +1059,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
                             />
                           </a>
                         ) : (
-                          <Link to={p.url}>
+                          <Link to={`/${p.url}`}>
                             <ProjectSlider
                               images={sliderImages}
                               alt={`${p.name} slide`}
@@ -1084,7 +1084,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
                                 {p.name}
                               </a>
                             ) : (
-                              <StyledLink to={p.url}>{p.name}</StyledLink>
+                              <StyledLink to={`/${p.url}`}>{p.name}</StyledLink>
                             )}
                           </Heading3>
                           <Paragraph style={{ marginTop: "-4px" }}>
@@ -1140,7 +1140,7 @@ const Landing = ({ toggleMode, mode, spread, setDisableScroll }) => {
                             />
                           </a>
                         ) : (
-                          <Link to={p.url}>
+                          <Link to={`/${p.url}`}>
                             <LcpThumb
                               src={posterSrc}
                               alt={`${p.name} project thumbnail`}
