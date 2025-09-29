@@ -1,7 +1,7 @@
 ### Latifur Rahman — Portfolio
 
-Template by <a href="https://www.juliacodes.com">Julia</a>
-Customized by <a href="https://www.latifur.dev">Latifur</a>
+Made by <a href="https://www.juliacodes.com">Julia</a>
+and <a href="https://www.latifur.dev">Latifur</a>.
 
 ## Development
 
