@@ -3,7 +3,7 @@ import { useDarkMode } from "./hooks";
 import { ThemeProvider } from "styled-components";
 import lightTheme, { darkTheme } from "./theming/themeContext";
 import GlobalStyles from "./theming/global";
-import { AppWrapper, Landing } from "./pages";
+import { AppWrapper, Landing, NotFound } from "./pages";
 import { ScrollTop } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 const Movie = lazy(() => import("./pages").then((m) => ({ default: m.Movie })));
@@ -19,6 +19,12 @@ const Scheduler = lazy(() =>
 );
 const MarketingSite = lazy(() =>
   import("./pages").then((m) => ({ default: m.MarketingSite })),
+);
+const Wordsmaster = lazy(() =>
+  import("./pages").then((m) => ({ default: m.Wordsmaster })),
+);
+const Khorochnama = lazy(() =>
+  import("./pages").then((m) => ({ default: m.Khorochnama })),
 );
 
 const App = () => {
@@ -37,6 +43,19 @@ const App = () => {
             <Route
               exact
               path="/"
+              element={
+                <AppWrapper>
+                  <Landing
+                    setDisableScroll={setDisableScroll}
+                    spread={spread}
+                    mode={mode}
+                    toggleMode={toggleMode}
+                  />
+                </AppWrapper>
+              }
+            />
+            <Route
+              path="/projects"
               element={
                 <AppWrapper>
                   <Landing
@@ -112,6 +131,40 @@ const App = () => {
                     mode={mode}
                     toggleMode={toggleMode}
                   />
+                </AppWrapper>
+              }
+            />
+            <Route
+              path="/wordsmaster"
+              element={
+                <AppWrapper>
+                  <Wordsmaster
+                    setDisableScroll={setDisableScroll}
+                    spread={spread}
+                    mode={mode}
+                    toggleMode={toggleMode}
+                  />
+                </AppWrapper>
+              }
+            />
+            <Route
+              path="/khorochnama"
+              element={
+                <AppWrapper>
+                  <Khorochnama
+                    setDisableScroll={setDisableScroll}
+                    spread={spread}
+                    mode={mode}
+                    toggleMode={toggleMode}
+                  />
+                </AppWrapper>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <AppWrapper>
+                  <NotFound />
                 </AppWrapper>
               }
             />

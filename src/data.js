@@ -6,12 +6,19 @@ import PhilosophyGif from "./images/collage/philosophy.gif";
 
 export const personalData = {
   name: "Latifur Rahman",
-  role: ["Web Developer"],
+  role: ["Software Engineer"],
   description:
-    "I craft solid and responsive products using JavaScript, React.js, and MySQL. Currently learning Express.js",
+    "I build accessible, performant web apps with React and MySQL — currently exploring Node/Express.",
   // About section text (independent from hero description)
   about:
-    "I’m a software engineer focused on building fast, accessible web experiences. Outside of work, I enjoy writing, design systems, and tinkering with performance.",
+    "I build responsive, accessible web interfaces with React and Tailwind/Bootstrap, and implement data‑backed features with MySQL. I care about performance, accessibility, and maintainable design systems. I’m also exploring Node/Express and researching low‑resource Bangla sentiment classification using BanglaBERT.",
+  // Education and location (used to render a meta line under About)
+  education: {
+    status: "Final‑year CSE student (12th semester)",
+    institution: "IUBAT",
+    url: "https://iubat.edu",
+  },
+  location: "Dhaka, Bangladesh",
 
   showProfileImage: true, // can be toggled to show(true)/hide(false) profile image
   profileImage: "/profile.jpg",
@@ -20,9 +27,53 @@ export const personalData = {
   linkedIn: "https://www.linkedin.com/in/latifur/",
   github: "https://github.com/itsLatifur",
   email: "itslatifur@gmail.com",
-  resumeLink: "/resume.pdf",
+  resumeLink: "/Latifur_Rahman_Resume.pdf",
   showExperiences: false, // can be toggled to show(true)/hide(false) experience section
   showCollage: false, // toggle entire collage section on/off
+  showSkills: true, // toggle skills chips section
+  showCertifications: true, // toggle certifications section
+  showResearch: true, // toggle research section
+  // Projects visibility on the homepage (always visible on /projects route)
+  showProjectsOnHome: true,
+
+  // Skills & tooling chips (shown under the hero)
+  // Objects kept for potential future metadata (order only)
+  skills: [
+    { label: "React", order: 1 },
+    { label: "JavaScript", order: 2 },
+    { label: "Bootstrap", order: 3 },
+    { label: "Tailwind CSS", order: 4 },
+    { label: "MySQL", order: 5 },
+  ],
+
+  // Certifications / Achievements (shown under About)
+  certifications: [
+    {
+      name: "Web Development Essentials (80 hours)",
+      issuer:
+        "Department of CSE, Jagannath University • EDGE Project, Bangladesh Computer Council (ICT Division)",
+      year: "2025",
+      url: "https://training.edge.gov.bd/certificate-validation?certificate_no=EDGE-DSTS-106-2619-00006",
+      // Optional metadata for future UI
+      credentialId: "EDGE-DSTS-106-2619-00006",
+      order: 1,
+    },
+  ],
+
+  // Research / Thesis work (shown next to Certifications)
+  research: [
+    {
+      title:
+        "Low-Resource Sentiment Classification for Regional Bangla Dialects Using BanglaBERT",
+      status: "Ongoing",
+      year: "2025",
+      institution:
+        "IUBAT — International University of Business Agriculture and Technology",
+      // Optional link to paper/preprint or repo when available
+      url: "",
+      order: 1,
+    },
+  ],
 };
 
 export const experiencesData = [

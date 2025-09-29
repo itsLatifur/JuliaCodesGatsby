@@ -1,23 +1,28 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { StickyNameGlobal } from "../components/stickyNameGlobal";
 
 const AppWrapper = ({ children }) => {
-    function ScrollToTop() {
-        const { pathname } = useLocation();
+  function ScrollToTop() {
+    const { pathname } = useLocation();
 
-        useEffect(() => {
-            window.scrollTo(0, 0);
-        }, [pathname]);
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
 
-        return null;
-    }
+    return null;
+  }
 
-    return (
-        <>
-            <ScrollToTop />
-            {children}
-        </>
-    );
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  return (
+    <>
+      <ScrollToTop />
+      {!isHome && <StickyNameGlobal showAfterPX={100} />}
+      {children}
+    </>
+  );
 };
 
 export { AppWrapper };

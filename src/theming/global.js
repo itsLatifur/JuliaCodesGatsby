@@ -1,7 +1,22 @@
-import { createGlobalStyle } from 'styled-components';
-import { Heading } from '../theming/styles';
+import { createGlobalStyle } from "styled-components";
+import { Heading } from "../theming/styles";
 
 const GlobalStyles = createGlobalStyle`
+  /* Self-hosted Inter (variable). Place files under public/fonts/inter */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/inter/InterVariable.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/inter/InterVariable-Italic.woff2') format('woff2');
+  }
     * {
     border: 0;
     box-sizing: border-box;
@@ -19,7 +34,24 @@ const GlobalStyles = createGlobalStyle`
   }
 
 
-  *:focus {outline: ${({ theme }) => theme.outline}; outline-offset: 3px;}
+  /* Keyboard focus ring: show only for keyboard navigation (focus-visible) */
+  *:focus { outline: none; }
+  :where(
+    a,
+    button,
+    [role="button"],
+    input,
+    select,
+    textarea,
+    summary,
+    details,
+    area,
+    label,
+    .focusable
+  ):focus-visible {
+    outline: 2px solid ${({ theme }) => theme.textMain};
+    outline-offset: 3px;
+  }
 
   html {
     display: flex;
@@ -37,7 +69,7 @@ const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.main};
     color: ${({ theme }) => theme.heading};
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
     font-weight: 200;
     letter-spacing: -1.1%;
     width: 100%;

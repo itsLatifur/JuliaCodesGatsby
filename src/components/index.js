@@ -7,6 +7,7 @@ import { Lock } from "./lock";
 import { Collage } from "./collage";
 import { Experience } from "./Experience";
 import { ScrollTop } from "./scrollTop";
+import { Loader, LoaderOverlay } from "./loader";
 
 export {
   Foot,
@@ -19,4 +20,6 @@ export {
   Experience,
   ProjectVideo,
   ScrollTop,
+  Loader,
+  LoaderOverlay,
 };

@@ -68,22 +68,21 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <!-- Fonts (Keep the ones from the new template) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Load Inter with non-blocking CSS; keep display=swap for fast paint -->
+    <!-- Fonts: Self-hosted Inter (variable). Ensure files exist under /public/fonts/inter -->
     <link
       rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
+      as="font"
+      href="/fonts/inter/InterVariable.woff2"
+      type="font/woff2"
+      crossorigin
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/inter/InterVariable-Italic.woff2"
+      type="font/woff2"
+      crossorigin
+    />
 
     <!-- JSON-LD Schema Script (Complete Version) -->
     <script type="application/ld+json">
@@ -150,6 +149,12 @@
                 "position": 1,
                 "name": "Home",
                 "item": "https://www.latifur.dev/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projects",
+                "item": "https://www.latifur.dev/projects"
               }
             ]
           }

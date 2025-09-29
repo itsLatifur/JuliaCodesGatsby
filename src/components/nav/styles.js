@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import QUERIES from '../../theming/styles';
-import { fadeIn } from '../../theming/animate';
+import styled from "styled-components";
+import QUERIES from "../../theming/styles";
+import { fadeIn } from "../../theming/animate";
 
 export const NavCont = styled.nav`
   width: auto;
@@ -38,11 +38,16 @@ export const NavLinks = styled.div`
       cursor: pointer;
       background-color: rgba(255, 255, 255, 0.02);
     }
+    &:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.9);
+      outline-offset: 2px;
+      background-color: rgba(255, 255, 255, 0.04);
+    }
   }
 
   a {
     text-decoration: none;
-    
+
     p {
       font-weight: 300;
       font-size: 14px;
@@ -57,6 +62,11 @@ export const NavLinks = styled.div`
       &:hover {
         cursor: pointer;
         background-color: rgba(255, 255, 255, 0.02);
+      }
+      &:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.9);
+        outline-offset: 2px;
+        background-color: rgba(255, 255, 255, 0.04);
       }
     }
   }
