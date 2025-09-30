@@ -1,8 +1,8 @@
 export default {
   id: "wordsmaster",
-  name: "WordsMaster: Word Guessing Game",
+  name: "WordsMaster: Guess the Word",
   description:
-    "Built dynamic scoring (time/streak bonuses), high-score tracking, in-game hints, and sound controls.",
+    "Built a game with dynamic scoring (time/streak bonuses), high-score tracking, in-game hints, and sound controls.",
   // Internal details page route (clicking poster/title goes here)
   url: "wordsmaster",
   // External live URL
